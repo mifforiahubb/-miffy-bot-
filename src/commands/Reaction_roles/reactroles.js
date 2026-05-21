@@ -284,7 +284,7 @@ async function handleSetup(interaction) {
     const row = new ActionRowBuilder().addComponents(
         new StringSelectMenuBuilder()
             .setCustomId('reaction_roles')
-            .setPlaceholder('Select your roles')
+            .setPlaceholder('pick your roles!')
             .setMinValues(0)
             .setMaxValues(roles.length)
             .addOptions(
@@ -292,20 +292,18 @@ async function handleSetup(interaction) {
                     label: role.name,
                     description: `Add/remove the ${role.name} role`,
                     value: role.id,
-                    emoji: '🎭'
+                    emoji: '♡⸝⸝'
                 }))
             )
     );
 
     const panelEmbed = new EmbedBuilder()
-        .setTitle(title)
         .setDescription(description)
         .setColor(getColor('info'))
         .addFields({
-            name: 'Available Roles',
             value: roles.map(role => `• ${role}`).join('\n')
         })
-        .setFooter({ text: 'Select roles from the dropdown menu below' });
+        .setFooter({ text: 'choose your roles from the menu below ♡' });
 
     const message = await channel.send({
         embeds: [panelEmbed],
